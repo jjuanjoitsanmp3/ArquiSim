@@ -44,3 +44,4 @@ add    R  000000  100000  rd,rs,rt     # rd = rs + rt        (excepción si desb
 addi   I  001000  -       rt,rs,imm    # rt = rs + imm       (imm con signo; excepción si desborda)
 
 # ---------------- Agregue aquí las demás instrucciones ----------------
+sub R 000000 100010 rd,rs,rt # rd = rs - rt (excepción si desborda)
