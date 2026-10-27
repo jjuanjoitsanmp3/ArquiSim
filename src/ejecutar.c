@@ -61,7 +61,15 @@ Resultado ejecutar(CPU *cpu, const Instruccion *in)
         escribir_registro(cpu, in->rt, r);
         return OK;
     }
-
+/* funciones que agregamos
+*/
+    if (es(in, "sub")) {
+        uint32_t r = restar_con_banderas(cpu, cpu->reg[in->rs], cpu->reg[in->rt]);
+        if (cpu->banderas & BANDERA_V)
+            return excepcion(cpu, "desbordamiento aritmético en sub");
+        escribir_registro(cpu, in->rd, r);
+        return OK;
+    }    
     /*
      * TODO: para cada instrucción nueva
      *   1. agregue su línea en isa.txt (formato, opcode, funct, operandos)
